@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiply Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiply Two Numbers</h1>
+    <div>
+        <input type="number" id="number1" placeholder="Enter first number">
+        <input type="number" id="number2" placeholder="Enter second number">
+        <button onclick="handleMultiply()">Multiply</button>
+    </div>
+    <div id="result"></div>
+
+    <!-- Include external JavaScript file -->
+    <script src="multiply.js"></script>
+    <script>
+        // JavaScript to handle the DOM interaction
+        function handleMultiply() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+
+            try {
+                const result = multiplyNumbers(num1, num2); // Call the function from external file
+                document.getElementById('result').innerText = `The result is: ${result}`;
+            } catch (error) {
+                document.getElementById('result').innerText = error.message;
+            }
+        }
+    </script>
+</body>
+</html>
